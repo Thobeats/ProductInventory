@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +21,13 @@
             color : white;
             border : none;
         }
-        #delete-product-btn{
+        #delete-product-btn, #cancel-product-btn{
             border : none;
             padding : 7px;
             background-color : red;
             color : white;
         }
+
     </style>
 <form method="" action="" id="product_form">
     <div class="row p-0 w-100">
@@ -39,7 +37,7 @@
         <div class="col-4 p-0">
             <div class="button text-right mt-5">
                 <button type="submit" id="add-product-btn">SAVE</button>
-                <button type="button" id="delete-product-btn">CANCEL</button>
+                <button type="reset" id="cancel-product-btn">CANCEL</button>
             </div>
         </div>
     </div>
@@ -146,7 +144,11 @@
                 url = '';
                 window.location = 'product_list.php';
             });
-        })
+        });
+
+        $("#cancel-product-btn").click(function(){
+            window.location.href = "product_list.php";
+        });
     });
    
 
