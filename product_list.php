@@ -11,9 +11,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+   
 </head>
 <body>
     <style>
@@ -37,29 +35,137 @@
         <div class="col-4 p-0">
             <div class="button text-right mt-5">
                 <a href="addproduct.php" id="add-product-btn">ADD</a>
-                <button id="delete-product-btn">MASS DELETE</button>
             </div>
         </div>
     </div>
       <hr>
 
-      <div class="row p-3">
-          <div class="col-3">
-              <div class="card">
-                  <div class="card-body">
-                      <div class="check text-left">
-                            <input type="checkbox" name="delete-check[]" class="delete-checkbox" id="">
-                      </div>
-                      <div class="content text-center">
-                            <p>JCCVVBSBSBSBSB</p>
-                            <p>Movie Disc</p>
-                            <p>1.00$</p>
-                            <p>Size: 700MB</p>
-                      </div>
+    <form action="" method="POST">
+        <div class="row p-0 w-100">
+            <div class="col-8 p-0">
+            </div>
+            <div class="col-4 p-0">
+                <div class="button text-right">
+                    <button type="submit" name="delete" id="delete-product-btn">MASS DELETE</button>
+                </div>
+            </div>
+        </div>
+        <div class="row p-3" id="book">
+          
+        </div>
+        <div class="row p-3" id="disc">
+          
+        </div>
+        <div class="row p-3" id="furniture">
+          
+        </div>
+    </form>
 
-                  </div>
-              </div>
-          </div>
-      </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            let bookurl = "get_products.php?type=book";
+
+            $.get(bookurl, function(data){
+                console.log(data);
+                let book = document.getElementById("book");
+
+                book.innerHTML = '';
+
+                for(datum in data){
+                    console.log(datum);
+                    book.innerHTML += `
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="check text-left">
+                                        <input type="checkbox" name="delete-check[]" class="delete-checkbox" id="" value= "${data[datum].product_id}">
+                                </div>
+                                <div class="content text-center">
+                                        <p>${data[datum].product_sku}</p>
+                                        <p>${data[datum].product_name}</p>
+                                        <p>${data[datum].product_price}$</p>
+                                        <p>Weight: ${data[datum].weight}Kg</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>                    
+                    
+                `; 
+                }
+            }, 'json');
+
+            let discurl = "get_products.php?type=disc";
+
+            $.get(discurl, function(data){
+                console.log(data);
+                let disc = document.getElementById("disc");
+
+                disc.innerHTML = '';
+
+                for(datum in data){
+                    console.log(datum);
+                    disc.innerHTML += `
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="check text-left">
+                                        <input type="checkbox" name="delete-check[]" class="delete-checkbox" id="" value= "${data[datum].product_id}">
+                                </div>
+                                <div class="content text-center">
+                                        <p>${data[datum].product_sku}</p>
+                                        <p>${data[datum].product_name}</p>
+                                        <p>${data[datum].product_price}$</p>
+                                        <p>Size: ${data[datum].size}MB</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>                    
+                    
+                `; 
+                }
+            }, 'json');
+
+            let furnurl = "get_products.php?type=furniture";
+
+            $.get(furnurl, function(data){
+                console.log(data);
+                let furniture = document.getElementById("furniture");
+
+                furniture.innerHTML = '';
+
+                for(datum in data){
+                    console.log(datum);
+                    furniture.innerHTML += `
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="check text-left">
+                                        <input type="checkbox" name="delete-check[]" class="delete-checkbox" id="" value= "${data[datum].product_id}">
+                                </div>
+                                <div class="content text-center">
+                                        <p>${data[datum].product_sku}</p>
+                                        <p>${data[datum].product_name}</p>
+                                        <p>${data[datum].product_price}$</p>
+                                        <p>Dimension: ${data[datum].dimension} </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>                    
+                    
+                `; 
+                }
+            }, 'json');
+        });
+    </script>
+      
 </body>
 </html>
