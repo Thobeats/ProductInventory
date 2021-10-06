@@ -42,17 +42,8 @@
         </div>
     </div>
       <hr>
+        <div id="container">
 
-  
-       
-        <div class="row p-3" id="book">
-          
-        </div>
-        <div class="row p-3" id="disc">
-          
-        </div>
-        <div class="row p-3" id="furniture">
-          
         </div>
     </form>
 
@@ -66,80 +57,37 @@
 
         let check = [];
         function loadPage(){
-            let bookurl = "get_products.php?type=book";
+            let geturl = "get_products.php";
 
-            $.get(bookurl, function(data){
+            $.get(geturl, function(data){
               //  console.log(data);
-                let book = document.getElementById("book");
+                let container = document.getElementById("container");
 
-                book.innerHTML = '';
+                container.innerHTML = '';
 
                 for(datum in data){
                   //  console.log(datum);
-                    book.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6 card-body">
-                        <div class="check text-left">
-                                <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
+                    container.innerHTML += `
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="check text-left">
+                                        <input type="checkbox" name="delete-${data.id}"  class="delete-checkbox" value= "${data.id}">
+                                </div>
+                                <div class="content text-center">
+                                        <p>${data.sku}</p>
+                                        <p>${data.name}</p>
+                                        <p>${data.price}$</p>
+                                        <p>${data.type}: ${data.type_value}${data.symbol}</p>
+                                </div>
+
+                            </div>
                         </div>
-                        ${data[datum].product_sku}</br>
-                        ${data[datum].product_name}</br>
-                        ${data[datum].product_price}$</br>
-                        Weight: ${data[datum].weight}Kg</br>                          
-                    </div>                     
+                    </div>                    
                     
                 `; 
                 }
-            }, 'json');
-
-            let discurl = "get_products.php?type=disc";
-
-            $.get(discurl, function(data){
-               // console.log(data);
-                let disc = document.getElementById("disc");
-
-                disc.innerHTML = '';
-
-                for(datum in data){
-                    //console.log(datum);
-                    disc.innerHTML += `
-                    <body class="col-lg-3 col-md-4 col-sm-6 card-body border">
-                        <div class="check text-left">
-                                <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
-                        </div>
-                        ${data[datum].product_sku}</br>
-                        ${data[datum].product_name}</br>
-                        ${data[datum].product_price}$</br>
-                        Size: ${data[datum].size}MB</br>                          
-                    </body>                    
-                    
-                `; 
-                }
-            }, 'json');
-
-            let furnurl = "get_products.php?type=furniture";
-
-            $.get(furnurl, function(data){
-                //console.log(data);
-                let furniture = document.getElementById("furniture");
-
-                furniture.innerHTML = '';
-
-                for(datum in data){
-                    //console.log(datum);
-                    furniture.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6 card-body border p-2">
-                        <div class="check text-left">
-                                <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
-                        </div>
-                        ${data[datum].product_sku}</br>
-                        ${data[datum].product_name}</br>
-                        ${data[datum].product_price}$</br>
-                        Dimension: ${data[datum].dimension}</br>                          
-                    </div>                     
-                    
-                `; 
-                }
-            }, 'json');
+            }, 'json');         
 
 
             

@@ -7,7 +7,7 @@ use App\Product;
 class Furniture extends Product{
     public $sku;
     public $dimension;
-    public $type = 'furniture';
+    public $type = 'Dimension';
 
 
     public function __construct($sku,$length, $width, $height,$furnitureName, $furniturePrice){
@@ -23,7 +23,7 @@ class Furniture extends Product{
         $price = $this->productPrice;
         $type = $this->type;
 
-        mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `dimension`,`type`) VALUES ('$name','$price','$sku','$dimension','$type')");
+        mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$dimension','$type', 'NULL')");
         
     }
 
