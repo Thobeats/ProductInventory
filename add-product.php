@@ -36,8 +36,8 @@
         </div>
         <div class="col-4 p-0">
             <div class="button text-right mt-5">
-                <button type="submit" id="add-product-btn">SAVE</button>
-                <button type="reset" id="cancel-product-btn">CANCEL</button>
+                <button type="submit" id="add-product-btn">Save</button>
+                <button type="reset" id="cancel-product-btn">Cancel</button>
             </div>
         </div>
     </div>
