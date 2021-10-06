@@ -75,10 +75,10 @@
                                         <input type="checkbox" name="delete-${data[datum].id}"  class="delete-checkbox" value= "${data[datum].id}">
                                 </div>
                                 <div class="content text-center">
-                                        <p>${data[datum].sku}</p>
-                                        <p>${data[datum].name}</p>
-                                        <p>${data[datum].price}$</p>
-                                        <p>${data[datum].type}: ${data[datum].type_value}${data[datum].symbol}</p>
+                                        <p> ${data[datum].sku} </p>
+                                        <p> ${data[datum].name} </p>
+                                        <p> ${data[datum].price}$ </p>
+                                        <p> ${data[datum].type}: ${data[datum].type_value}${data[datum].symbol} </p>
                                 </div>
 
                             </div>
