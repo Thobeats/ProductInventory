@@ -77,22 +77,15 @@
                 for(datum in data){
                   //  console.log(datum);
                     book.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="check text-left">
-                                        <input type="checkbox" name="delete-${data[datum].product_id}"  class="delete-checkbox" value= "${data[datum].product_id}">
-                                </div>
-                                <div class="content text-center">
-                                        <p>${data[datum].product_sku}</p>
-                                        <p>${data[datum].product_name}</p>
-                                        <p>${data[datum].product_price}$</p>
-                                        <p>Weight: ${data[datum].weight}Kg</p>
-                                </div>
-
-                            </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 card-body">
+                        <div class="check text-left">
+                                <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
                         </div>
-                    </div>                    
+                        ${data[datum].product_sku}</br>
+                        ${data[datum].product_name}</br>
+                        ${data[datum].product_price}$</br>
+                        Weight: ${data[datum].weight}Kg</br>                          
+                    </div>                     
                     
                 `; 
                 }
@@ -109,21 +102,14 @@
                 for(datum in data){
                     //console.log(datum);
                     disc.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="check text-left">
-                                        <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
-                                </div>
-                                <div class="content text-center">
-                                        <p>${data[datum].product_sku}</p>
-                                        <p>${data[datum].product_name}</p>
-                                        <p>${data[datum].product_price}$</p>
-                                        <p>Size: ${data[datum].size}MB</p>
-                                </div>
-
-                            </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 card-body">
+                        <div class="check text-left">
+                                <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
                         </div>
+                        ${data[datum].product_sku}</br>
+                        ${data[datum].product_name}</br>
+                        ${data[datum].product_price}$</br>
+                        Size: ${data[datum].size}MB</br>                          
                     </div>                    
                     
                 `; 
@@ -141,22 +127,15 @@
                 for(datum in data){
                     //console.log(datum);
                     furniture.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="check text-left">
-                                        <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
-                                </div>
-                                <div class="content text-center">
-                                        <p>${data[datum].product_sku}</p>
-                                        <p>${data[datum].product_name}</p>
-                                        <p>${data[datum].product_price}$</p>
-                                        <p>Dimension: ${data[datum].dimension} </p>
-                                </div>
-
-                            </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 card-body">
+                        <div class="check text-left">
+                                <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
                         </div>
-                    </div>                    
+                        ${data[datum].product_sku}</br>
+                        ${data[datum].product_name}</br>
+                        ${data[datum].product_price}$</br>
+                        Dimension: ${data[datum].dimension}</br>                          
+                    </div>                     
                     
                 `; 
                 }
