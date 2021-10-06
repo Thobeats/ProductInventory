@@ -35,7 +35,7 @@
         </div>
         <div class="col-4 p-0">
             <div class="button text-right mt-5">
-                <a href="addproduct.php" id="add-product-btn">ADD</a>
+                <a href="add-product.php" id="add-product-btn">ADD</a>
                 <button type="submit" id="delete-product-btn">MASS DELETE</button>
 
             </div>
