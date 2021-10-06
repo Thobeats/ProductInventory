@@ -64,8 +64,6 @@
                 let container = document.getElementById("container");
 
                 container.innerHTML = '';
-
-                for(datum in data){
                   //  console.log(datum);
                     container.innerHTML += `
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -86,7 +84,6 @@
                     </div>                    
                     
                 `; 
-                }
             }, 'json');         
 
 
