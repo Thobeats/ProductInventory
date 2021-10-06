@@ -102,7 +102,7 @@
                 for(datum in data){
                     //console.log(datum);
                     disc.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6 card-body">
+                    <body class="col-lg-3 col-md-4 col-sm-6 card-body border">
                         <div class="check text-left">
                                 <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
                         </div>
@@ -110,7 +110,7 @@
                         ${data[datum].product_name}</br>
                         ${data[datum].product_price}$</br>
                         Size: ${data[datum].size}MB</br>                          
-                    </div>                    
+                    </body>                    
                     
                 `; 
                 }
@@ -127,7 +127,7 @@
                 for(datum in data){
                     //console.log(datum);
                     furniture.innerHTML += `
-                    <div class="col-lg-3 col-md-4 col-sm-6 card-body">
+                    <div class="col-lg-3 col-md-4 col-sm-6 card-body border p-2">
                         <div class="check text-left">
                                 <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
                         </div>
