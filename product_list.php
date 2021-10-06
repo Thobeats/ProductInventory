@@ -63,8 +63,6 @@
             $.get(geturl, function(data){
               //  console.log(data);
                 let container = document.getElementById("container");
-                let body = document.getElementsByTagName('body')[0];
-
 
                 container.innerHTML = '';
 
@@ -90,7 +88,6 @@
                     
                 `; 
 
-                body.innerHTML += `<p style="display:hidden">${data[datum].name} </p>`;
                 }
             }, 'json');         
 
