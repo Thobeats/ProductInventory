@@ -6,10 +6,12 @@ namespace App;
 class Product_control {
 
     public function get_products($link){
-        $collection = [];
+        $collect = [];
         $query = mysqli_query($link, "select * from products");
     
         while($data = mysqli_fetch_assoc($query)){
+            $collection = [];
+
             $collection["name"] = $data["product_name"];
             $collection['price'] = $data['product_price'];
             $collection['id'] = $data['product_id'];
@@ -17,9 +19,11 @@ class Product_control {
             $collection['type'] = $data['type'];
             $collection['type_value'] = $data['type_value'];
             $collection['symbol'] = $data['symbol'];
+
+            $collect[] = $collection;
         }
     
-        return $collection;
+        return $collect;
     }
 
     public function delete_products($link, $ids){
