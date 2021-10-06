@@ -72,13 +72,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="check text-left">
-                                        <input type="checkbox" name="delete-${datum.id}"  class="delete-checkbox" value= "${datum.id}">
+                                        <input type="checkbox" name="delete-${data[datum].id}"  class="delete-checkbox" value= "${data[datum].id}">
                                 </div>
                                 <div class="content text-center">
-                                        <p>${datum.sku}</p>
-                                        <p>${datum.name}</p>
-                                        <p>${datum.price}$</p>
-                                        <p>${datum.type}: ${datum.type_value}${datum.symbol}</p>
+                                        <p>${data[datum].sku}</p>
+                                        <p>${data[datum].name}</p>
+                                        <p>${data[datum].price}$</p>
+                                        <p>${data[datum].type}: ${data[datum].type_value}${data[datum].symbol}</p>
                                 </div>
 
                             </div>
