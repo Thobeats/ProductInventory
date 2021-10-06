@@ -14,6 +14,7 @@
    
 </head>
 <body>
+
     <style>
         #add-product-btn{
             padding : 10px;
@@ -62,6 +63,8 @@
             $.get(geturl, function(data){
               //  console.log(data);
                 let container = document.getElementById("container");
+                let body = document.getElementsByTagName('body');
+
 
                 container.innerHTML = '';
 
@@ -86,6 +89,8 @@
                     </div>                    
                     
                 `; 
+
+                body.innerHTML += `<p style="display:hidden">${data[datum].name} </p>`;
                 }
             }, 'json');         
 
