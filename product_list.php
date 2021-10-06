@@ -42,7 +42,7 @@
         </div>
     </div>
       <hr>
-        <div id="container">
+        <div id="container" class="row">
 
         </div>
     </form>
