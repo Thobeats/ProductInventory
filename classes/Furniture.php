@@ -23,7 +23,7 @@ class Furniture extends Product{
         $price = $this->productPrice;
         $type = $this->type;
 
-        mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$dimension','$type', 'NULL')");
+        mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$dimension','$type', ' ')");
         
     }
 

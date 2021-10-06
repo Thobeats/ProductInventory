@@ -64,19 +64,21 @@
                 let container = document.getElementById("container");
 
                 container.innerHTML = '';
+
+                for(datum in data){
                   //  console.log(datum);
                     container.innerHTML += `
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="check text-left">
-                                        <input type="checkbox" name="delete-${data.id}"  class="delete-checkbox" value= "${data.id}">
+                                        <input type="checkbox" name="delete-${datum.id}"  class="delete-checkbox" value= "${datum.id}">
                                 </div>
                                 <div class="content text-center">
-                                        <p>${data.sku}</p>
-                                        <p>${data.name}</p>
-                                        <p>${data.price}$</p>
-                                        <p>${data.type}: ${data.type_value}${data.symbol}</p>
+                                        <p>${datum.sku}</p>
+                                        <p>${datum.name}</p>
+                                        <p>${datum.price}$</p>
+                                        <p>${datum.type}: ${datum.type_value}${datum.symbol}</p>
                                 </div>
 
                             </div>
@@ -84,6 +86,7 @@
                     </div>                    
                     
                 `; 
+                }
             }, 'json');         
 
 
