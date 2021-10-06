@@ -48,7 +48,7 @@
        <div class="col-6">
             <div class="form-group row">
                 <label for="" class="col-3 text-right">SKU</label>
-                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" pattern="[A-Za-z0-9_@./#&+-]{,14}" title="length should be 6 or greater">
+                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" pattern="[A-Za-z0-9.]{,14}" title="length should be 6 or greater">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Name</label>
