@@ -94,7 +94,7 @@
 
                 options.innerHTML += `
                     <label for="" class="col-3 text-right">Size</label>
-                    <input type="number" class="col-9" name="size" id="DVD" placeholder="Please provide Size" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9" name="size" id="size" placeholder="Please provide Size" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
                 `;
             },
             function optionThree(){
