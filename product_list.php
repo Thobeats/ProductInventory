@@ -28,6 +28,7 @@
             color : white;
         }
     </style>
+  <form>
     <div class="row p-0 w-100">
         <div class="col-8 p-0">
             <h2 class="pt-4 pl-4 display-4">Product List</h2>        
@@ -35,21 +36,15 @@
         <div class="col-4 p-0">
             <div class="button text-right mt-5">
                 <a href="addproduct.php" id="add-product-btn">ADD</a>
+                <button type="submit" id="delete-product-btn">MASS DELETE</button>
+
             </div>
         </div>
     </div>
       <hr>
 
-    <form action="" method="POST">
-        <div class="row p-0 w-100">
-            <div class="col-8 p-0">
-            </div>
-            <div class="col-4 p-0">
-                <div class="button text-right">
-                    <button type="submit" name="delete" id="delete-product-btn">MASS DELETE</button>
-                </div>
-            </div>
-        </div>
+  
+       
         <div class="row p-3" id="book">
           
         </div>
@@ -68,23 +63,25 @@
 
 
     <script>
-        $(document).ready(function(){
+
+        let check = [];
+        function loadPage(){
             let bookurl = "get_products.php?type=book";
 
             $.get(bookurl, function(data){
-                console.log(data);
+              //  console.log(data);
                 let book = document.getElementById("book");
 
                 book.innerHTML = '';
 
                 for(datum in data){
-                    console.log(datum);
+                  //  console.log(datum);
                     book.innerHTML += `
-                    <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="check text-left">
-                                        <input type="checkbox" name="delete-check[]" class="delete-checkbox" id="" value= "${data[datum].product_id}">
+                                        <input type="checkbox" name="delete-${data[datum].product_id}"  class="delete-checkbox" value= "${data[datum].product_id}">
                                 </div>
                                 <div class="content text-center">
                                         <p>${data[datum].product_sku}</p>
@@ -104,19 +101,19 @@
             let discurl = "get_products.php?type=disc";
 
             $.get(discurl, function(data){
-                console.log(data);
+               // console.log(data);
                 let disc = document.getElementById("disc");
 
                 disc.innerHTML = '';
 
                 for(datum in data){
-                    console.log(datum);
+                    //console.log(datum);
                     disc.innerHTML += `
-                    <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="check text-left">
-                                        <input type="checkbox" name="delete-check[]" class="delete-checkbox" id="" value= "${data[datum].product_id}">
+                                        <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
                                 </div>
                                 <div class="content text-center">
                                         <p>${data[datum].product_sku}</p>
@@ -136,19 +133,19 @@
             let furnurl = "get_products.php?type=furniture";
 
             $.get(furnurl, function(data){
-                console.log(data);
+                //console.log(data);
                 let furniture = document.getElementById("furniture");
 
                 furniture.innerHTML = '';
 
                 for(datum in data){
-                    console.log(datum);
+                    //console.log(datum);
                     furniture.innerHTML += `
-                    <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="check text-left">
-                                        <input type="checkbox" name="delete-check[]" class="delete-checkbox" id="" value= "${data[datum].product_id}">
+                                        <input type="checkbox" name="delete-${data[datum].product_id}" class="delete-checkbox" value= "${data[datum].product_id}">
                                 </div>
                                 <div class="content text-center">
                                         <p>${data[datum].product_sku}</p>
@@ -164,7 +161,32 @@
                 `; 
                 }
             }, 'json');
-        });
+
+
+            
+        }
+
+        $(document).ready(loadPage());
+
+
+        function addCheck(event){
+            let id = event.target.value;
+            event.target.setAttribute("onclick", "removeCheck(event)");
+
+            check.push(id);
+        }
+
+        $("form").submit(function(event){
+            event.preventDefault();
+            let data = $('form').serializeArray();
+
+            $.post("delete_products.php", { delete : data} , function(data, status){
+
+                loadPage();
+                console.log("data: " + data + "status: " + status);
+            });
+        })
+    
     </script>
       
 </body>

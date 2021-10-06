@@ -19,7 +19,7 @@ class Product_control {
     public function delete_products($link, $ids){
 
         foreach($ids as $id){
-            mysqli_query($link, "delete from products where id = '$id'");
+            mysqli_query($link, "delete from products where product_id = '$id'");
         }
 
     }

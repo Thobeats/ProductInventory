@@ -48,20 +48,20 @@
        <div class="col-6">
             <div class="form-group row">
                 <label for="" class="col-3 text-right">SKU</label>
-                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" pattern="[0-9]{6}" title="Please, provide the data of indicated type">
+                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" pattern="[A-Za-z0-9_@./#&+-]{,14}" title="length should be 6 or greater">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Name</label>
-                <input type="text" class="col-9" name="name" id="name" placeholder="Enter Product Name" pattern="[A-Za-z]{1,}" title="Please, provide the data of indicated type">
+                <input type="text" class="col-9" name="name" id="name" placeholder="Enter Product Name" pattern="[A-Za-z ]{1,}" title="Please, provide the data of indicated type">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Price</label>
-                <input type="text" class="col-9" name="price" id="price" placeholder="Enter Product Price" pattern="[0-9]{1,}" title="Please, provide the data of indicated type">
+                <input type="number" class="col-9" name="price" id="price" placeholder="Enter Product Price" pattern="[0-9]{1,}" title="Please, provide the data of indicated type">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Type Switcher</label>
                 <select name="selectProduct" id="productType" class="col-9">
-                    <option value="0">Type Switcher</option>
+                    <option value="0" class="text-muted">Type Switcher</option>
                     <option  value="1" >DVD</option>
                     <option value="2">Furniture</option>
                     <option  value="3">Book</option>
@@ -94,7 +94,7 @@
 
                 options.innerHTML += `
                     <label for="" class="col-3 text-right">Size</label>
-                    <input type="text" class="col-9" name="size" id="DVD" placeholder="Please provide Size" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9" name="size" id="DVD" placeholder="Please provide Size" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
                 `;
             },
             function optionThree(){
@@ -104,11 +104,11 @@
 
                 options.innerHTML += `
                     <label for="" class="col-3 text-right">Height</label>
-                    <input type="text" class="col-9 mb-1" name="height" id="height" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9 mb-1" name="height" id="height" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
                     <label for="" class="col-3 text-right">Width</label>
-                    <input type="text" class="col-9 mb-1" name="width" id="width" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9 mb-1" name="width" id="width" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
                     <label for="" class="col-3  text-right">Length</label>
-                    <input type="text" class="col-9 mb-1" name="length" id="length" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9 mb-1" name="length" id="length" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
                 `;
             },
             function optionFour(){
@@ -118,7 +118,7 @@
 
                 options.innerHTML += `
                     <label for="" class="col-3 text-right">Weight</label>
-                    <input type="text" class="col-9" name="weight" id="weight" placeholder="Please provide Weight"pattern="[0-9]{1,}"" title="Please, provide the data of indicated type" >
+                    <input type="number" class="col-9" name="weight" id="weight" placeholder="Please provide Weight"pattern="[0-9]{1,}"" title="Please, provide the data of indicated type" >
                 `;
             }
         ]
@@ -149,6 +149,8 @@
         $("#cancel-product-btn").click(function(){
             window.location.href = "product_list.php";
         });
+
+       
     });
    
 
