@@ -21,7 +21,7 @@ $link = $database->connect();
 
 $furniture->insert($link);
 
-$furniture->close();
+$furniture->close($link);
 
 
 ?>

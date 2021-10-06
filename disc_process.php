@@ -18,5 +18,5 @@ $link = $database->connect();
 
 $disc->insert($link);
 
-$disc->close();
+$disc->close($link);
 ?>
