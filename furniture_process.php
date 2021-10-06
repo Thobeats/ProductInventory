@@ -16,7 +16,7 @@ $height = $_GET['height'];
 
 
 $furniture = new Furniture($sku,$length,$width,$height,$name,$price);
-$database = new Database("127.0.0.1","root","","test");
+$database = new Database("eu-cdbr-west-01.cleardb.com","bd1a69e060a62b:73b0f3da","73b0f3da","heroku_77923308437b88f");
 $link = $database->connect();
 
 $furniture->insert($link);
