@@ -13,7 +13,7 @@ $price = $_GET['price'];
 
 
 $book = new Book($sku,$weight,$name,$price);
-$database = new Database("eu-cdbr-west-01.cleardb.com","bd1a69e060a62b:73b0f3da","73b0f3da","heroku_77923308437b88f");
+$database = new Database("eu-cdbr-west-01.cleardb.com","bd1a69e060a62b","73b0f3da","heroku_77923308437b88f");
 $link = $database->connect();
 
 $book->insert($link);
