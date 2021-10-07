@@ -55,7 +55,7 @@
                 <input type="text" class="col-9" name="name" id="name" placeholder="Enter Product Name" pattern="[A-Za-z 0-9]{1,}" title="Please, provide the data of indicated type">
             </div>
             <div class="form-group row">
-                <label for="" class="col-3 text-right">Price</label>
+                <label for="" class="col-3 text-right">Price ($)</label>
                 <input type="number" class="col-9" name="price" id="price" placeholder="Enter Product Price" pattern="[0-9]{1,}" title="Please, provide the data of indicated type">
             </div>
             <div class="form-group row">
@@ -93,7 +93,7 @@
                 options.innerHTML = "";
 
                 options.innerHTML += `
-                    <label for="" class="col-3 text-right">Size</label>
+                    <label for="" class="col-3 text-right">Size (MB)</label>
                     <input type="number" class="col-9" name="size" id="size" placeholder="Please provide Size" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
                 `;
             },
@@ -103,11 +103,11 @@
                 options.innerHTML = "";
 
                 options.innerHTML += `
-                    <label for="" class="col-3 text-right">Height</label>
+                    <label for="" class="col-3 text-right">Height (CM)</label>
                     <input type="number" class="col-9 mb-1" name="height" id="height" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
-                    <label for="" class="col-3 text-right">Width</label>
+                    <label for="" class="col-3 text-right">Width (CM)</label>
                     <input type="number" class="col-9 mb-1" name="width" id="width" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
-                    <label for="" class="col-3  text-right">Length</label>
+                    <label for="" class="col-3  text-right">Length (CM)</label>
                     <input type="number" class="col-9 mb-1" name="length" id="length" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
                 `;
             },
@@ -117,7 +117,7 @@
                 options.innerHTML = "";
 
                 options.innerHTML += `
-                    <label for="" class="col-3 text-right">Weight</label>
+                    <label for="" class="col-3 text-right">Weight (KG)</label>
                     <input type="number" class="col-9" name="weight" id="weight" placeholder="Please provide Weight"pattern="[0-9]{1,}"" title="Please, provide the data of indicated type" >
                 `;
             }
