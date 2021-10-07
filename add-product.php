@@ -52,7 +52,7 @@
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Name</label>
-                <input type="text" class="col-9" name="name" id="name" placeholder="Enter Product Name" pattern="[A-Za-z ]{1,}" title="Please, provide the data of indicated type">
+                <input type="text" class="col-9" name="name" id="name" placeholder="Enter Product Name" pattern="[A-Za-z 0-9]{1,}" title="Please, provide the data of indicated type">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Price</label>
