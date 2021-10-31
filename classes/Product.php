@@ -1,5 +1,7 @@
 <?php
     namespace App;
+    use App\Product_control;
+
 
     
     class Product extends Product_control{
