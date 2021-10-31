@@ -138,7 +138,7 @@
         $("#product_form").submit(function(event){
             event.preventDefault();
             let formDetails = $(this).serialize();
-            let ur = "book_process.php";
+            let ur = "process.php";
             let form = $(this);
             ur += "?" + formDetails;
 
