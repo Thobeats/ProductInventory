@@ -148,7 +148,7 @@
                 console.log(data);
                 form[0].reset();
                 url = '';
-                //window.location = 'product_list.php';
+                window.location = 'product_list.php';
             });
         });
 
