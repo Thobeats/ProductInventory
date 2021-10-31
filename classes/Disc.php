@@ -10,11 +10,11 @@ class Disc extends Product{
     public $type = 'Size';
 
 
-    public function __construct($sku,$size,$discName,$discPrice){
-        parent::__construct($discName,$discPrice);
-        $this->size = $size;
-        $this->sku = "DSC" . $sku;
-    }
+    // public function __construct($sku,$size,$discName,$discPrice){
+    //     parent::__construct($discName,$discPrice);
+    //     $this->size = $size;
+    //     $this->sku = "DSC" . $sku;
+    // }
 
     public function insert($link){
         $name = $this->productName;

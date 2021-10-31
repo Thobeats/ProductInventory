@@ -10,11 +10,11 @@ class Furniture extends Product{
     public $type = 'Dimension';
 
 
-    public function __construct($sku,$length, $width, $height,$furnitureName, $furniturePrice){
-        parent::__construct($furnitureName, $furniturePrice);
-        $this->dimension = "$length x $width x $height";
-        $this->sku = "FUR" . $sku;
-    }
+    // public function __construct($sku,$length, $width, $height,$furnitureName, $furniturePrice){
+    //     parent::__construct($furnitureName, $furniturePrice);
+    //     $this->dimension = "$length x $width x $height";
+    //     $this->sku = "FUR" . $sku;
+    // }
 
     public function insert($link){
         $name = $this->productName;

@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Product_control;
 
 
 class Product_control {
@@ -32,6 +33,11 @@ class Product_control {
             mysqli_query($link, "delete from products where product_id = '$id'");
         }
 
+    }
+
+    public function check_sku($link, $sku){
+       $check = mysqli_query($link,"select * from products where product_sku = '$sku'");
+       return mysqli_num_rows($check);
     }
 }
 

@@ -48,11 +48,11 @@
        <div class="col-6">
             <div class="form-group row">
                 <label for="" class="col-3 text-right">SKU</label>
-                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" pattern="[A-Za-z0-9_@./#&+-]{,14}" title="length should be 6 or greater">
+                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" onblur="checkDuplicate(event)" pattern="[A-Za-z0-9_@./#&+-]{,14}" title="length should be 6 or greater">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Name</label>
-                <input type="text" class="col-9" name="name" id="name" placeholder="Enter Product Name" pattern="[A-Za-z 0-9]{1,}" title="Please, provide the data of indicated type">
+                <input type="text" class="col-9" name="name" id="name" placeholder="Enter Product Name" title="Please, provide the data of indicated type">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Price ($)</label>
@@ -76,7 +76,6 @@
 
 
 <script>
-
     $(document).ready(function(){   
         let options = document.getElementById("optionContainer");
         let url ="";
@@ -88,13 +87,15 @@
                 options.innerHTML = "";
             },
             function optionTwo(){
-                url = "";
-                url = "disc_process.php";
+                // url = "";
+                // url = "disc_process.php";
                 options.innerHTML = "";
 
                 options.innerHTML += `
                     <label for="" class="col-3 text-right">Size (MB)</label>
-                    <input type="number" class="col-9" name="size" id="size" placeholder="Please provide Size" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9" name="size" id="size" placeholder="Please provide Size" pattern="[0-9]{1,}" title="Please, provide the data of indicated type">
+                    <input type="hidden" name="type" value="Size">
+                    <input type="hidden" name="symbol" value="MB">
                 `;
             },
             function optionThree(){
@@ -104,11 +105,14 @@
 
                 options.innerHTML += `
                     <label for="" class="col-3 text-right">Height (CM)</label>
-                    <input type="number" class="col-9 mb-1" name="height" id="height" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9 mb-1" name="height" id="height" placeholder="Please provide Dimension" pattern="[0-9]{1,}" title="Please, provide the data of indicated type">
                     <label for="" class="col-3 text-right">Width (CM)</label>
-                    <input type="number" class="col-9 mb-1" name="width" id="width" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9 mb-1" name="width" id="width" placeholder="Please provide Dimension" pattern="[0-9]{1,}" title="Please, provide the data of indicated type">
                     <label for="" class="col-3  text-right">Length (CM)</label>
-                    <input type="number" class="col-9 mb-1" name="length" id="length" placeholder="Please provide Dimension" pattern="[0-9]{1,}"" title="Please, provide the data of indicated type">
+                    <input type="number" class="col-9 mb-1" name="length" id="length" placeholder="Please provide Dimension" pattern="[0-9]{1,}" title="Please, provide the data of indicated type">
+                    <input type="hidden" name="type" value="Dimension">
+                    <input type="hidden" name="symbol" value="">
+
                 `;
             },
             function optionFour(){
@@ -117,8 +121,10 @@
                 options.innerHTML = "";
 
                 options.innerHTML += `
+                    <input type="hidden" name="type" value="Weight">
+                    <input type="hidden" name="symbol" value="KG">
                     <label for="" class="col-3 text-right">Weight (KG)</label>
-                    <input type="number" class="col-9" name="weight" id="weight" placeholder="Please provide Weight"pattern="[0-9]{1,}"" title="Please, provide the data of indicated type" >
+                    <input type="number" class="col-9" name="weight" id="weight" placeholder="Please provide Weight" pattern="[0-9]{1,}" title="Please, provide the data of indicated type" >
                 `;
             }
         ]
@@ -132,17 +138,17 @@
         $("#product_form").submit(function(event){
             event.preventDefault();
             let formDetails = $(this).serialize();
-            let ur = url;
+            let ur = "book_process.php";
             let form = $(this);
             ur += "?" + formDetails;
 
            // console.log(ur);
 
-            $.get(ur,function(){
-                //console.log(data);
+            $.get(ur,function(data){
+                console.log(data);
                 form[0].reset();
                 url = '';
-                window.location = 'product_list.php';
+                //window.location = 'product_list.php';
             });
         });
 
@@ -152,6 +158,15 @@
 
        
     });
+
+    function checkDuplicate(event){
+        let value = event.target.value;
+        let checkOptions = [function(){ document.querySelector("#add-product-btn").disabled = false; window.reload() }, function(){ alert('sku exists, enter a new one'); document.querySelector("#add-product-btn").disabled = true; }];
+        let url =  `check_duplicate.php?sku=${value}`;
+        $.get(url, function(data){
+          checkOptions[data]();
+        }, 'text');
+    }
    
 
 </script>

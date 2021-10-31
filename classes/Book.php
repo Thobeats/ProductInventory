@@ -11,11 +11,11 @@ class Book extends Product{
     public $type = 'Weight';
   
 
-    public function __construct($sku,$weight,$bookName,$bookPrice){
-        parent::__construct($bookName, $bookPrice);
-        $this->weight = $weight;
-        $this->sku = "BOK" . $sku;
-    }
+    // public function __construct($sku,$weight,$bookName,$bookPrice){
+    //     parent::__construct($bookName, $bookPrice);
+    //     $this->weight = $weight;
+    //     $this->sku = "BOK" . $sku;
+    // }
 
     public function insert($link){
         $name = $this->productName;
