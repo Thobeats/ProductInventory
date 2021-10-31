@@ -3,15 +3,15 @@
 namespace App;
 
 class Database{
-    // public $host = "eu-cdbr-west-01.cleardb.com";
-    // public $username = "bd1a69e060a62b";
-    // public $password = "73b0f3da";
-    // public $database = "heroku_77923308437b88f";
+    public $host = "eu-cdbr-west-01.cleardb.com";
+    public $username = "bd1a69e060a62b";
+    public $password = "73b0f3da";
+    public $database = "heroku_77923308437b88f";
 
-    public $host = "127.0.0.1";
-    public $username = "root";
-    public $password = "";
-    public $database = "test";
+    // public $host = "127.0.0.1";
+    // public $username = "root";
+    // public $password = "";
+    // public $database = "test";
 
     // public function __construct($host, $username, $password, $database){
     //     $this->host = $host;
