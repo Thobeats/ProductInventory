@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\Product_control;
 
 
 class Product_control {
