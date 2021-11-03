@@ -27,7 +27,11 @@
             $type = $this->productType;
             $symbol = $this->productSymbol;
     
-            mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$type_value', '$type', '$symbol')");
+            if(mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$type_value', '$type', '$symbol')")){
+              return 1;
+            }else{
+              return 0;
+            }
                
         }
 
@@ -44,9 +48,6 @@
                         ];
             
             $options[$check]($x);
-
-            echo $this->productName;
-
         }
 
         public function setPrice($x){
@@ -98,6 +99,9 @@
           $options[$check]($x);
         }
 
+     
+
+      
       public function close($link){
         mysqli_close($link);
       }

@@ -48,7 +48,7 @@
        <div class="col-6">
             <div class="form-group row">
                 <label for="" class="col-3 text-right">SKU</label>
-                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" onblur="checkDuplicate(event)" pattern="[A-Za-z0-9_@./#&+-]{,14}" title="length should be 6 or greater">
+                <input type="text" class="col-9" name="sku" id="sku" placeholder="Enter Store Keeping Unit" oninput="checkDuplicate(event)" pattern="[A-Za-z0-9_@./#&+-]{,14}" title="length should be 6 or greater">
             </div>
             <div class="form-group row">
                 <label for="" class="col-3 text-right">Name</label>
@@ -87,8 +87,7 @@
                 options.innerHTML = "";
             },
             function optionTwo(){
-                // url = "";
-                // url = "disc_process.php";
+        
                 options.innerHTML = "";
 
                 options.innerHTML += `
@@ -99,8 +98,6 @@
                 `;
             },
             function optionThree(){
-                url = "";
-                url = "furniture_process.php";
                 options.innerHTML = "";
 
                 options.innerHTML += `
@@ -116,8 +113,7 @@
                 `;
             },
             function optionFour(){
-                url = "";
-                url = "book_process.php";
+
                 options.innerHTML = "";
 
                 options.innerHTML += `
@@ -141,14 +137,16 @@
             let ur = "process.php";
             let form = $(this);
             ur += "?" + formDetails;
-
-           // console.log(ur);
+            
+            let response = [function(){
+                alert('Error: Invalid Input');
+            }, function(){
+                window.location.href = 'product_list.php';
+            }];
 
             $.get(ur,function(data){
                 console.log(data);
-                form[0].reset();
-                url = '';
-                window.location = 'product_list.php';
+                response[data]();           
             });
         });
 
@@ -161,7 +159,7 @@
 
     function checkDuplicate(event){
         let value = event.target.value;
-        let checkOptions = [function(){ document.querySelector("#add-product-btn").disabled = false; window.reload() }, function(){ alert('sku exists, enter a new one'); document.querySelector("#add-product-btn").disabled = true; }];
+        let checkOptions = [function(){ document.querySelector("#add-product-btn").disabled = false; window.reload(); }, function(){ alert('sku exists, enter a new one'); document.querySelector("#add-product-btn").disabled = true; }];
         let url =  `check_duplicate.php?sku=${value}`;
         $.get(url, function(data){
           checkOptions[data]();
