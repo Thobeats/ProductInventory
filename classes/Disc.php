@@ -5,35 +5,33 @@ use App\Product;
 
 
 class Disc extends Product{
-    public $sku;
+    private $sku;
     public $size;
     public $type = 'Size';
 
 
-    // public function __construct($sku,$size,$discName,$discPrice){
-    //     parent::__construct($discName,$discPrice);
-    //     $this->size = $size;
-    //     $this->sku = "DSC" . $sku;
-    // }
+    public function __construct($size,$disckName){
+        parent::__construct($discName);
+        $this->size = $size;
+    }
 
     public function insert($link){
         $name = $this->productName;
         $size = $this->size;
-        $sku = $this->sku;
+        $sku = $this->productSku;
         $price = $this->productPrice;
         $type = $this->type;
 
-        mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`, `type`, `symbol`) VALUES ('$name','$price','$sku','$size', '$type', 'MB')");
+        // mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`, `type`, `symbol`) VALUES ('$name','$price','$sku','$size', '$type', 'MB')");
+
+        if(mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`, `type`, `symbol`) VALUES ('$name','$price','$sku','$size', '$type', 'MB')")){
+            return 1;
+          }else{
+            return 0;
+          }
           
     }
 
-    public function get($link){
-        return mysqli_query($link, "select * from products where type = 'disc'");
-    }
-
-    public function close($link){
-        mysqli_close($link);
-    }
 }
 
 

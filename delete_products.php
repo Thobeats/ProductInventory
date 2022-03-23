@@ -1,15 +1,13 @@
 <?php 
 
-use App\Product_control;
+use App\Product;
 use App\Database;
 
 require_once realpath("vendor/autoload.php");
 
 $idData = $_POST['delete'];
 $values = [];
-$product_control = new Product_control();
-$database = new Database();
-$link = $database->connect();
+$products = new Product();
 
 foreach($idData as $id){
     $value = $id['value'];
@@ -17,7 +15,7 @@ foreach($idData as $id){
     $values[] = $value;
 }
 
-$product_control->delete_products($link, $values);
+$products->delete_products($values);
 
 
 
