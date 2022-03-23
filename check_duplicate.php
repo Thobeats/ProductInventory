@@ -1,16 +1,14 @@
 <?php
 
-use App\Product_control;
+use App\Product;
 use App\Database;
 
 require_once realpath("vendor/autoload.php");
 
-$product_control = new Product_control();
-$database = new Database();
-$link = $database->connect();
+$product = new Product();
 
 $sku = $_GET['sku'];
-$data = $product_control->check_sku($link, $sku);
+$data = $product->check_sku($sku);
 
 echo $data;
 
