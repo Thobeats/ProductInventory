@@ -10,7 +10,7 @@ class Disc extends Product{
     public $type = 'Size';
 
 
-    public function __construct($size,$disckName){
+    public function __construct($size,$discName){
         parent::__construct($discName);
         $this->size = $size;
     }
