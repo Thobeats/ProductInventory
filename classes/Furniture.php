@@ -23,10 +23,10 @@ class Furniture extends Product{
 
         // mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$dimension','$type', ' ')");
         
-        if(mysqli_query($this->link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$dimension','$type', ' ')")){
+        if(mysqli_query($link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$dimension','$type', ' ')")){
             return 1;
           }else{
-           return mysqli_error($this->link);
+            return 0;
           }
     }
     
