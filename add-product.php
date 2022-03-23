@@ -151,7 +151,7 @@
         });
 
         $("#cancel-product-btn").click(function(){
-            window.location.href = "/";
+            window.location.href = "product_list.php";
         });
 
        

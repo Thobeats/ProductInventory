@@ -59,9 +59,7 @@
         let check = [];
         function loadPage(){
             let geturl = "get_products.php";
-
             $.get(geturl, function(data){
-              //  console.log(data);
                 let container = document.getElementById("container");
 
                 container.innerHTML = '';
@@ -103,6 +101,18 @@
             event.target.setAttribute("onclick", "removeCheck(event)");
 
             check.push(id);
+
+            console.log(check);
+        }
+
+        function removeCheck(event){
+            let id = event.target.value;
+
+            let index = check.indexOf(id);
+            
+            check.splice(index, 1);
+
+            console.log(check);
         }
 
         $("form").submit(function(event){

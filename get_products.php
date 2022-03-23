@@ -1,15 +1,13 @@
 <?php 
 
-use App\Product_control;
+use App\Product;
 use App\Database;
 
 require_once realpath("vendor/autoload.php");
 
-$product_control = new Product_control();
-$database = new Database();
-$link = $database->connect();
+$products = new Product();
 
-$data = $product_control->get_products($link);
+$data = $products->get_products();
 
 echo json_encode($data);
 

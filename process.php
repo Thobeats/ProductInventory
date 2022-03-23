@@ -1,8 +1,10 @@
 <?php 
 
 use App\Product;
-use App\Database;
 use App\Helper;
+use App\Disc;
+use App\Book;
+use App\Furniture;
 
 require_once realpath("vendor/autoload.php");
 
@@ -16,22 +18,29 @@ $sku = $_GET['sku'];
 $price = $_GET['price'];
 $type_value = $helper->setTypeValue($type);
 
-//echo $type_value;
+if($type == 'Weight'){
+    $product = new Book($type_value, $name);
+}
 
-$product = new Product($type,$symbol);
-$database = new Database();
-$link = $database->connect();
+if($type == 'Size'){
+    $product = new Disc($type_value, $name);
+}
+
+if($type == 'Dimension'){
+    $product = new Furniture($type_value, $name);
+}
+
 
 $product->setName($name);
 $product->setPrice($price);
 $product->setValue($type_value);
-$product->setSku($link, $sku);
+$product->setSku($sku);
 
-$helper->checkError(empty($product->errors), $link);
+$helper->checkError(empty($product->errors));
 
-$res = $product->insert($link); 
+$res = $product->insert(); 
 
-$product->close($link);   
+$product->close();   
 
 echo $res;
 ?>
