@@ -141,7 +141,7 @@
             let response = [function(){
                 alert('Error: Invalid Input');
             }, function(){
-                window.location.href = 'product_list.php';
+                window.location.href = 'index.php';
             }];
 
             $.get(ur,function(data){
@@ -151,7 +151,7 @@
         });
 
         $("#cancel-product-btn").click(function(){
-            window.location.href = "product_list.php";
+            window.location.href = "index.php";
         });
 
        

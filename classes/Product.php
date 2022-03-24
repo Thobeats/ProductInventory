@@ -11,6 +11,7 @@
         public $productTypeValue;
         public $errors = [];
         protected $productSku;
+        protected $productValue;
         public $link;
         
         public function __construct($name = null){
@@ -22,21 +23,21 @@
             //$this->productPrice = $price;
         }
 
-        // public function insert(){
-        //     $name = $this->productName;
-        //     $type_value = $this->productTypeValue;
-        //     $sku = $this->productSku;
-        //     $price = $this->productPrice;
-        //     $type = $this->productType;
-        //     $symbol = $this->productSymbol;
+        public function insert(){
+            $name = $this->productName;
+            $type_value = $this->productValue;
+            $sku = $this->productSku;
+            $price = $this->productPrice;
+            $type = $this->productType;
+            $symbol = $this->productSymbol;
     
-        //     if(mysqli_query($this->link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$type_value', '$type', '$symbol')")){
-        //       return 1;
-        //     }else{
-        //       return 0;
-        //     }
+            if(mysqli_query($this->link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$type_value', '$type', '$symbol')")){
+              return 1;
+            }else{
+              return 0;
+            }
                
-        // }
+        }
 
         public function getByType($type){
           return mysqli_query($this->link,"select * from products where type = '$type'");
@@ -132,17 +133,20 @@
         }
   
       public function delete_products($ids){
-  
-          foreach($ids as $id){
-              mysqli_query($this->link, "delete from products where id = '$id'");
-          }
-  
+        mysqli_query($this->link, "delete from products where id in $ids");
+       
       }
   
       public function check_sku($sku){
          $check = mysqli_query($this->link,"select * from products where product_sku = '$sku'");
         return mysqli_fetch_assoc($check) != "" ? mysqli_num_rows($check) : 0;
         
+      }
+
+      public function checkError($x){
+          $option = ['0' => function(){ return exit("0"); } , "1" => function(){ return 1;  }];
+      
+          return $option[$x]();
       }
       
       public function close(){
