@@ -40,18 +40,6 @@ $classFunctionArray = [
 
 $product = $classFunctionArray[$type]($type,$name);
 
-// if($type == 'Weight'){
-//     $product = new Book($type_value, $name);
-// }
-
-// if($type == 'Size'){
-//     $product = new Disc($type_value, $name);
-// }
-
-// if($type == 'Dimension'){
-//     $product = new Furniture($type_value, $name);
-// }
-
 
 $product->setPrice($price);
 $product->setSku($sku);
