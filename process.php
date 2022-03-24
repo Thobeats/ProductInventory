@@ -31,6 +31,8 @@ $classFunctionArray = [
     }
 ];
 
+$classFunctionArray[$type]();
+
 // if($type == 'Weight'){
 //     $product = new Book($type_value, $name);
 // }
