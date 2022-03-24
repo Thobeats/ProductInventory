@@ -1,7 +1,6 @@
 <?php 
 
 use App\Product;
-use App\Helper;
 use App\Disc;
 use App\Book;
 use App\Furniture;
