@@ -15,23 +15,31 @@ $name = $_GET['name'];
 $sku = $_GET['sku'];
 $price = $_GET['price'];
 
+$product = "";
+
 
 $classFunctionArray = [
-    'Weight' => function (){
-        $product = new Book($type_value, $name);
+    'Weight' => function ($type,$name){
+        $product = new Book($type,$name);
         $product->setWeight();
+
+        return $product;
     },
-    'Size' => function (){
-        $product = new Disc($type_value, $name);
+    'Size' => function ($type,$name){
+        $product = new Disc($type,$name);
         $product->setSize();
+
+        return $product;
     },
-    'Dimension' => function(){
-        $product = new Furniture($type_value, $name);
+    'Dimension' => function($type,$name){
+        $product = new Furniture($type,$name);
         $product->setDimension();
+
+        return $product;
     }
 ];
 
-$classFunctionArray[$type]();
+$product = $classFunctionArray[$type]($type,$name);
 
 // if($type == 'Weight'){
 //     $product = new Book($type_value, $name);
@@ -46,9 +54,7 @@ $classFunctionArray[$type]();
 // }
 
 
-$product->setName($name);
 $product->setPrice($price);
-$product->setValue($type_value);
 $product->setSku($sku);
 
 $product->checkError(empty($product->errors));

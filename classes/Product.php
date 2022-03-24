@@ -11,12 +11,13 @@
         public $productTypeValue;
         public $errors = [];
         protected $productSku;
-        protected $productValue;
+        public $productType;
+        public $productSymbol;
         public $link;
         
         public function __construct($name = null){
           if($name != null){
-            $this->productName = $name;
+            $this->setName($name);
           }
             
             $this->link = parent::connect();
@@ -25,7 +26,7 @@
 
         public function insert(){
             $name = $this->productName;
-            $type_value = $this->productValue;
+            $type_value = $this->productTypeValue;
             $sku = $this->productSku;
             $price = $this->productPrice;
             $type = $this->productType;
@@ -34,7 +35,7 @@
             if(mysqli_query($this->link, "INSERT INTO `products`(`product_name`, `product_price`, `product_sku`, `type_value`,`type`, `symbol`) VALUES ('$name','$price','$sku','$type_value', '$type', '$symbol')")){
               return 1;
             }else{
-              return 0;
+              return mysqli_error;
             }
                
         }
@@ -133,8 +134,8 @@
         }
   
       public function delete_products($ids){
-        mysqli_query($this->link, "delete from products where id in $ids");
-       
+        $arr_str = implode(",",$ids);
+        mysqli_query($this->link, "delete from products where id in ($arr_str)");
       }
   
       public function check_sku($sku){
