@@ -76,7 +76,7 @@
                                     <p> ${data[datum].sku} </p>
                                     <p> ${data[datum].name} </p>
                                     <p> ${data[datum].price}$ </p>
-                                    <p> ${data[datum].type}: ${data[datum].type_value}${data[datum].symbol} </p>
+                                    <p> ${data[datum].type}: ${data[datum].type_value} ${data[datum].symbol} </p>
                                 </div>
 
                             </div>
