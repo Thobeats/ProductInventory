@@ -13,7 +13,7 @@ class Furniture extends Product{
 
 
         $this->productType = $type;
-        $this->productSymbol = 'm3';
+        $this->productSymbol = 'cm3';
     }
 
     public function setDimension(){
